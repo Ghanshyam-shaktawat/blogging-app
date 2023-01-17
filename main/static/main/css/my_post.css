@@ -1,0 +1,38 @@
+.container-u1{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.u-articles{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+}
+.u-articles h2{
+    text-transform: uppercase;
+    color: #111;
+    font-weight: 800;
+    font-size: 2.4rem;
+}
+.u-articles i{
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+.u-posts{
+    display: grid;
+    grid-template-columns: 360px 1fr auto;
+    grid-template-rows: 1fr;
+    column-gap: 20px;
+}
+.edit-author{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.edit-author a{
+    padding: 8px 25px;
+    display: block;
+}

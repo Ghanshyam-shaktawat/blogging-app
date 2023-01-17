@@ -1,0 +1,185 @@
+/* Base template css */
+
+/* ------------------------------------------------ */
+/* Login page css */
+input:autofill {
+    background: #fff;
+}
+
+/* .bg-login{
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/static/main/images/bg72.jpg") no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(px);
+    z-index: 1;
+} */
+
+.full-body {
+    padding: 10px;
+    width: 100%;
+    height: calc(100vh - 70px);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.back-but-icon {
+    padding-right: 14px;
+}
+
+.back-butt {
+    margin-bottom: 30px;
+    color: rgb(90, 90, 90);
+}
+
+.back-butt:hover {
+    color: rgb(0, 0, 0);
+
+}
+
+.login-box {
+    background-color: rgb(255, 255, 255);
+    max-width: 480px;
+    width: 100%;
+    min-height: 480px;
+    border-radius: 20px;
+    padding: 40px 40px;
+    /* border: 0.8px solid rgb(235, 235, 235); */
+    box-shadow: 0px 0px 1px rgb(163, 163, 163);
+}
+
+.l-title {
+    font-size: 2rem;
+    text-align: left;
+    text-transform: capitalize;
+    color: #282a35;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.ls-title {
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+::placeholder {
+    color: rgb(100, 100, 100);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.field {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 26px;
+    border-radius: 7px;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 5px 20px 5px 52px;
+    transition: all 0.1s ease;
+}
+
+.field2 {
+    margin-bottom: 0px;
+}
+
+.field-contain {
+    position: relative;
+}
+
+.icon {
+    color: white;
+    background-color: #282a35;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 45px;
+    border-radius: 7px 0px 0px 7px;
+}
+
+input:focus {
+    outline: none !important;
+    border: 2px solid rgb(100, 100, 100);
+}
+
+.fp {
+    font-size: 0.8rem;
+    margin-top: 18px;
+    margin-bottom: 50px;
+    padding-left: 2px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.fp:hover {
+    color: #374bff;
+    text-decoration: underline;
+}
+
+.login-but {
+    width: 100%;
+    height: 45px;
+    background-color: #374bff;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.login-but:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 1px 1px 5px rgb(90, 90, 90);
+}
+.lr-link {
+    margin-top: 28px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.lr-link-a {
+    color: #374bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.lr-link-a:hover {
+    text-decoration: underline;
+}
+
+.alert-mssg{
+    margin-top: 7px;
+    border-radius: 10px;
+    font-size: 0.8rem;   
+    padding: 0px 10px;
+    padding-top: 3px;
+}
+.alert-mssg i{
+    color: red;
+    margin-right: 7px;
+}
+/* login css end */
+/* ----------------------------- */

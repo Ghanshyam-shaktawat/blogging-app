@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block css%}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/my_post.css' %}">
+{% endblock %}
+
+{% block title %}My Post | Social blogging{% endblock %}
+
+{% block start %}
+<div class="container-u1">
+    <div class="u-articles">
+        <h2><i class="fa-solid fa-square"></i>Your Post</h2>
+        {% for post in post_list|slice:'1:' %}
+        <article class="u-posts">
+            <div class="post-image">
+                <a href="{% url 'main:post-detail' post.slug %}"><img src="{{post.image.url}}" alt="" class="m-img"></a>
+            </div>
+            <div class="post-dt">
+                <a class="c-link" href="#">{{post.category}}</a>
+                <h3 class="p-title"><a href="{% url 'main:post-detail' post.slug %}">{{post.title}}</a></h3>
+                <p class="p-snippet">{{post.snippets}}</p>
+                <div class="m-post-meta">
+                    <a class="post-author" href="{% url 'accounts:profile' post.author %}">
+                        {% if post.author.user_image %}
+                        <img src="{{post.author.user_image.url}}" class="post-ai">
+                        {% else %}
+                        <img src="{% static 'images/default.png' %}" class="post-ai">
+                        {% endif %}
+                        {{post.author.first_name}} {{post.author.last_name}}</a>
+                    <p class="time">{{post.pub_date|naturaltime}}</p>
+                </div>
+            </div>
+            <div class="edit-author">
+                <a class='btn btn-primary' style="margin-left: 30px" href="{% url 'main:edit-post' post.slug %}">Edit</a>
+                <a class='btn btn-danger' style="margin-left: 30px" href="{% url 'main:delete-post' post.slug %}">Delete</a>
+            </div>
+        </article>
+        <hr class="m-border-line">
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+<!-- <a style="margin-left: 30px" href="{% url 'main:edit-post' post.slug %}">Edit</a>
+<a style="margin-left: 30px" href="{% url 'main:delete-post' post.slug %}">Delete</a> -->

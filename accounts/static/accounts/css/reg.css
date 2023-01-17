@@ -1,0 +1,99 @@
+.full-body {
+    padding: 10px;
+    width: 100%;
+    height: calc(100vh - 70px);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.reg-box {
+    background-color: rgb(255, 255, 255);
+    max-width: 480px;
+    width: 100%;
+    min-height: 480px;
+    border-radius: 20px;
+    padding: 40px 40px;
+    /* border: 0.8px solid rgb(235, 235, 235); */
+    box-shadow: 0px 0px 1px rgb(163, 163, 163);
+}
+#regForm{
+    display: flex;
+    flex-direction: column;
+}
+.r-title {
+    font-size: 2rem;
+    text-align: left;
+    text-transform: capitalize;
+    color: #282a35;
+    font-weight: 800 !important;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+.box-head p{
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.fieldWrapper{
+    margin-bottom: 25px;
+    position: relative;
+}
+.field {
+    width: 100%;
+    height: 45px;
+    border-radius: 7px;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 5px 20px 5px 20px;
+    transition: all 0.1s ease;
+}
+input:focus {
+    outline: none !important;
+    border: 2px solid rgb(100, 100, 100);
+}
+.reg-button {
+    width: 100%;
+    height: 45px;
+    background-color: #374bff;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.reg-button:hover {
+    transition: all 0.2s ease-out;
+    box-shadow: 1px 1px 5px rgb(90, 90, 90);
+}
+.login-info{
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+.login-link{
+    padding-left: 8px;
+    color: #374bff;
+    font-weight: bold;
+}
+.error-mssg{
+    margin-bottom: -5px;
+    margin-left: 8px;
+    padding-bottom: 0;
+    font-size: 0.8rem;
+    color: red;
+    font-family: 'inter';
+}
+.icon {
+    color: red;
+    font-size: 1.2rem;
+    background-color: transparent;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 40px;
+    height: 45px;
+}

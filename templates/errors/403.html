@@ -1,0 +1,25 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'errors/css/error_403.css' %}">
+    <title>
+        403 FORBIDDEN
+    </title>
+</head>
+
+<body>
+    <div class="cont">
+        <img class="ford-img" src="{% static 'errors/images/403.jpg' %}">
+        <h2 class="mssg">We are Sorry...</h2>
+        <p class="sub-mssg">The page you are trying to access has restricted access<br>and you do not have permission.
+        </p>
+        <a href="{% url 'main:index' %}" class="button">go back</a>
+    </div>
+</body>
+</html>

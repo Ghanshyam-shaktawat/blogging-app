@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block start %}
+<div class="content">
+    <div class="p-card">
+        <a href='{% url "main:post-detail"  post_list.0.slug %}' class="p-link">
+        <img src="{{post_list.0.image.url}}" alt="" class="p-card-img">
+        <div class="card-meta">
+            <h2>{{ post_list.0.title}}</h2>
+            <p>{{post_list.0.snippets}}</p>
+        </div>
+        </a>
+    </div>
+    <div class="t-sec">
+        <div class="t-wrapper">
+            <h2>Latest Trending</h2>
+            <div class="trending-card">
+                {% for post in featured_post %}
+                <div class="trending">
+                    <img src="{{ post.image.url }}" alt="" class="trending-img">
+                    <div class="trending-info">
+                        <p>{{post.category}}</p>
+                        <h3>{{post.title}}</h3>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% comment %}
+        Calling post_list from the index view context value. Wrap this inside container.
+        Also we are slicing the list skipping the first item in list.
+    {% endcomment %}
+    <div class="main-content">
+        <div class="articles">
+            <h2><i class="fa-solid fa-square"></i>latest</h2>
+        {% for post in post_list|slice:'1:' %}
+            <article class="post">
+                <div class="post-image">
+                    <a href="{% url 'main:post-detail' post.slug %}"><img src="{{post.image.url}}" alt="" class="m-img"></a>
+                </div>
+                <div class="post-dt">
+                    <a class="c-link" href="{% url 'main:category' post.category %}">{{post.category}}</a>
+                    <h3 class="p-title"><a href="{% url 'main:post-detail' post.slug %}">{{post.title}}</a></h3>
+                    <p class="p-snippet">{{post.snippets}}</p>
+                    <div class="m-post-meta">
+                        <a class="post-author" href="{% url 'accounts:profile' post.author %}">
+                        {% if post.author.user_image %}
+                        <img src="{{post.author.user_image.url}}" class="post-ai">
+                        {% else %}
+                        <img src="{% static 'images/default.png' %}" class="post-ai">
+                        {% endif %}
+                        {{post.author.first_name}} {{post.author.last_name}}</a>
+                        <p class="time">{{post.pub_date|naturaltime}}</p>
+                    </div>
+                </div>
+            </article>
+            <hr class="m-border-line">
+        {% endfor %}
+        </div>
+        <div class="sidebar"></div>
+    </div>
+</div>
+{% endblock %}

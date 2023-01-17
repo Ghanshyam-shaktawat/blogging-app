@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title%}
+{{ post.title }} | Social Blogging
+{% endblock %}
+
+{%block start%}
+<div class="w-content">
+    <article class="w-article article">
+        <header class="article-heading">
+            <span>
+                <a href="#" class="w-category">{{ post.category }}</a>
+            </span>
+            <h1 class="heading-title">{{ post.title }}</h1>
+            <p class="heading-snippet">{{ post.snippets }}</p>
+            <div class="heading-meta">
+                <span class="w-author-by">by</span><a href="{% url 'accounts:profile' post.author %}" class="w-author">
+                    {{ post.author.first_name }} {{post.author.last_name}}</a>
+                <span class="meta-p-date"><i class="fa-solid fa-file-lines"></i>Posted {{ post.pub_date|date }}</span>
+            </div>
+            <div class="heading-image">
+                <img class="header-image" src="{{ post.image.url }}" alt="">
+            </div>
+        </header>
+        <section class="article-body" id="article-body">
+            {{post.body|safe}}
+        </section>
+        <footer class="article-footer">
+            <div class="author-bio">
+                <div class="author-bio-heading">About The Author</div>
+                {% if post.author.user_image %}
+                <img class="author-bio-img" src="{{post.author.user_image.url}}">
+                {% else %}
+                <img class="author-bio-img" src="{% static 'images/default.png' %}">
+                {% endif %}
+                <div class="author-bio-info">
+                    <a href="{% url 'accounts:profile' post.author %}" class="author-1">{{post.author.first_name}} {{post.author.last_name}}</a>
+                    <p class="author-about">{{post.author.about}}</p>
+                </div>
+            </div>
+        </footer>
+    </article>
+</div>
+{% endblock %}

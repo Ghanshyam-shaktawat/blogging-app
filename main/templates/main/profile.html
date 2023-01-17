@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/profile.css' %}">
+{% endblock %}
+
+{% block title%}
+{{ members.username }}'s Profile
+{% endblock %}
+
+{% block start %}
+<div class="p-container">
+    <div class="p-wrapper">
+        <div class="p-width">
+            <div class="img">
+                {% if members.user_image %}
+                <img src="{{members.user_image.url}}" alt="" class="user-img">
+                {% else %}
+                <img src="{% static 'images/default.png' %}" class="user-img">
+                {% endif %}
+            </div>
+            <div class="author-sec">
+                <p>{{ members.first_name }} {{members.last_name}}</p>
+                <span class="abt">{{ members.about }}</span>
+                <span class="post-no">articles published: {{user_post|length}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="profile_post">
+        <div class="p-articles">
+            {% for post in user_post %}
+            <article class="post">
+                <div class="post-image">
+                    <a href="{% url 'main:post-detail' post.slug %}"><img src="{{post.image.url}}" alt="" class="m-img"></a>
+                </div>
+                <div class="post-dt">
+                    <a class="c-link" href="{% url 'main:category' post.category %}">{{post.category}}</a>
+                    <h3 class="p-title"><a href="{% url 'main:post-detail' post.slug %}">{{post.title}}</a></h3>
+                    <p class="p-snippet">{{post.snippets}}</p>
+                    <div class="m-post-meta">
+                        <p class="time">Published {{post.pub_date|naturaltime}}</p>
+                    </div>
+                </div>
+            </article>
+            <hr class="m-border-line">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

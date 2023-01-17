@@ -1,0 +1,45 @@
+{% extends 'accounts/base.html'%}
+{% load static %}
+
+{% block title%}
+Login - Gokatu
+{% endblock %}
+
+{% block links %}
+<link type="text/css" rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+{% endblock %}
+
+{% block body %}
+<!-- <div class="bg-login"></div> -->
+<div class="full-body">
+    <a class="back-butt" href="{% url 'main:index' %}"><i class="fas fa-solid fa-angle-left back-but-icon"></i>Back
+        to homepage</a>
+    <div class="login-box">
+        <div class="login-data">
+            <h2 class="l-title">Login</h2>
+            <p class="ls-title">Hey, Enter your details to login to your account.</p>
+            <form class="login-form" method="POST">
+                {% csrf_token %}
+                <div class="field-contain">
+                    <i class="fa-solid fa-user icon"></i>
+                    <input class="field" type="text" placeholder="Enter Username/Email" name="username" autofocus>  
+                </div>
+                <div class="field-contain">
+                    <i class="fa-solid fa-lock icon"></i>
+                    <input class="field field2" type="password" placeholder="Password" name="password">
+                </div>
+                {% if form.errors %}
+                <div class="alert-danger alert-mssg">
+                    <p class="alert-mssg"><i class="fa-solid fa-circle-exclamation"></i>The username/email or password is incorrect! 
+                        Both your login information is case-sensitive</p>
+                </div>
+                {% endif %}
+                <p class="fp"><a class="fp" href="#">Forgot Password?</a></p>
+                <button class="login-but" type="submit" name="submit">Sign in</button>
+            </form>
+            <p class="lr-link">Don't have an account? <a class="lr-link lr-link-a"
+                    href="{% url 'accounts:register' %}">Sign Up Now</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

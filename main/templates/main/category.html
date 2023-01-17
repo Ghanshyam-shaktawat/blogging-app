@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block start %}
+<div class="container">
+    <h1>{{cats}} Categories</h1>
+    <ul>
+    {% for post in category_post %}
+    <li><a id="post_link" href="{% url 'main:post-detail' post.pk %}">{{ post.title }}</a>
+        <p>By {{ post.author.first_name }} {{ post.author.last_name }} | Published - {{ post.pub_date|date }}</p>
+        <p>{{ post.snippets}}</p><p>{{post.category}}</p>
+    </li><br />
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

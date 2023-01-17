@@ -1,0 +1,212 @@
+.container{
+    padding: 10px 50px 10px 50px;
+    max-width: 1400px;
+    width: 100%;
+    overflow: hidden;
+}
+.form-group{
+    margin-top: 20px;
+}
+.post-sec{
+    display: flex;
+    flex-direction: row;
+}
+.right-sec{
+    width: 25%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.left-sec{
+    width: 75%;
+    padding-right: 20px;
+}
+.ftitle{
+    font-size: 1.2rem;
+    font-weight: 400;
+    height: 50px;
+}
+.ftitle::placeholder{
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Inter';
+    text-transform: capitalize;
+}
+.tbody{
+    max-height: 100vh;
+    min-height: 70vh;
+}
+.fdate:disabled, .tauthor:disabled, .tstatus:disabled{
+    background-color: #fff;
+}
+.tsnippet{
+    height: 100px;
+}
+.sec1{
+    background-color: rgb(248, 248, 248);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.sec2{
+    background-color: rgb(248, 248, 248);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.sec3{
+    background-color: rgb(248, 248, 248);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 300px;
+    max-width: 100%;
+    height: 100%;
+}
+.but1{
+    margin-bottom: 10px;
+}
+
+/* ============================================================ */
+/* Post.html css starts */
+.w-content{
+    width: 100%;
+    min-height: 80vh;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+.w-article{
+    max-width: 1000px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 20px 100px;
+    align-items: start;
+}
+.article-heading{
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    font-family: 'inter';
+}
+.w-category, .w-category:hover{
+    width: auto;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color:#374bff;
+    font-weight: 700;
+    text-decoration: underline !important;
+}
+.heading-title{
+    font-size: 2.9rem;
+    font-weight: 800;
+}
+.heading-snippet{
+    font-size: 1.5em;
+    font-family: arial;
+    padding-bottom: 0;
+    margin-bottom: 0%;
+    color: #686868;
+}
+.heading-meta{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+.w-author-by {
+    font-weight: 600 !important;
+    color: #374bff;
+}
+.w-author{
+    font-weight: 600 !important;
+    color: #374bff;
+    text-decoration: underline !important;
+}
+.w-author:hover{
+    color: #374bff;
+}
+.meta-p-date{
+    margin-left: 30px;
+    color: #686868;
+}
+.meta-p-date i{
+    margin-right: 10px;
+}
+.article-body{
+    width: 100%;
+    max-width: 1000px;
+    padding-right: 50px;
+    text-rendering: optimizeLegibility;
+    margin-top: 40px;
+    font-size: 1.25rem;
+    font-weight: 400;
+    grid-column: 1;
+    font-family: 'inter', arial;
+    line-height: 32px;
+}
+.article-body a{
+    color: #374bff;
+}
+.article-body a:hover {
+    color: #374bff;
+}
+.article-footer{
+    grid-column: 1;
+}
+.w-sidebar{
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 200px;
+    width: 100%;
+    position: relative;
+}
+.header-image{
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+}
+.author-bio{
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 20px 15px;
+    gap: 0px;
+    background-color: #f2f2f2;
+}
+.author-bio-heading{
+    grid-column: 1 / 3;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.author-bio-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    grid-column: 1;
+    margin-left: 10px;
+}
+.author-bio-info{
+    grid-column: 2;
+}
+.author-about{
+    font-size: 1.1rem;
+}
+.author-1 {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: inherit;
+}
+.author-1:hover{
+    text-decoration: underline !important;
+    color: #374bff;
+}

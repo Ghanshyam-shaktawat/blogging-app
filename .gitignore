@@ -1,0 +1,25 @@
+*.pyc  
+*~  
+__pycache__  
+blogging_env
+blog_env
+/static
+/media
+blogging/production_settings.py
+
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
+
+# Environments 
+.env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/ 

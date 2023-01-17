@@ -1,0 +1,33 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title%}Register - Gotaku{% endblock %}
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/reg.css' %}">
+<script type="text/javascript" src="{% static 'accounts/js/register.js' %}" defer></script>
+{% endblock %}
+
+{% block body %}
+<div class="full-body">
+    <div class="reg-box">
+        <form id="regForm" method="POST" autocomplete="off">
+            {% csrf_token %}
+            <div class="box-head">
+                <h2 class="r-title">Register</h2>
+                <p>Create your account now!</p>
+            </div>
+            {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field }}
+                {% for error in field.errors %}
+                <i class="fa-solid fa-circle-exclamation icon"></i>
+                <p class="error-mssg">{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="reg-button">Sign up</button>
+            <p class="login-info">Already have an account?<a class="login-link" href="{% url 'accounts:login' %}">Login</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

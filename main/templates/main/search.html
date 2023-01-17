@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Search{% endblock %}
+
+{% block start %}
+<div class="search-sec">
+    <div class="main-content">
+        <div class="articles">
+            <h2 class="s-title"><i class="fa-solid fa-square"></i>We found {{object_list|length}} result matching Your search</h2>
+            {% for post in object_list %}
+            <article class="post">
+                <div class="post-image">
+                    <a href="{% url 'main:post-detail' post.slug %}"><img src="{{post.image.url}}" alt=""
+                            class="m-img"></a>
+                </div>
+                <div class="post-dt">
+                    <a class="c-link" href="#">{{post.category}}</a>
+                    <h3 class="p-title"><a href="{% url 'main:post-detail' post.slug %}">{{post.title}}</a></h3>
+                    <p class="p-snippet">{{post.snippets}}</p>
+                    <div class="m-post-meta">
+                        <a class="post-author" href="{% url 'accounts:profile' post.author %}">
+                            {% if post.author.user_image %}
+                            <img src="{{post.author.user_image.url}}" class="post-ai">
+                            {% else %}
+                            <img src="{% static 'images/default.png' %}" class="post-ai">
+                            {% endif %}
+                            {{post.author.first_name}} {{post.author.last_name}}</a>
+                        <p class="time">{{post.pub_date|naturaltime}}</p>
+                    </div>
+                </div>
+            </article>
+            <hr class="m-border-line">
+            {% empty %}
+            <p class="nf">NO SEARCH RESULTS FOUND!</p>
+            {% endfor %}
+        </div>
+        <div class="sidebar">Sidebar for ads</div>
+    </div>
+</div>
+{% endblock %}

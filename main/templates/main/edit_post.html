@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+
+{% block title%}
+Edit post | Social Blogging
+{% endblock %}
+
+{% block start %}
+
+<div class="container">
+    <h1>Edit your Post:</h1>
+    <div class="form-group">
+        <form class="post-sec" autocomplete="off" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="left-sec">
+                <p>
+                    {{ form.title}}
+                </p>
+                <p>
+                    {{form.body}}
+                </p>
+            </div>
+            <div class="right-sec">
+                <div class="sec1">
+                    <p>
+                        <label for="id_tag">Select Categories:</label>
+                        {{ form.category }}
+                    </p>
+                    <p>
+                        <label for="id_slug">Post Url</label>
+                        {{ form.slug }}
+                        {% if form.errors %}
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                    <div class="alert alert-danger">
+                        <strong>Post with this URL already exists.</strong>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% endif %}
+                    </p>
+                </div>
+                <div class="sec2">
+                    <p>
+                        <label for="id_tag">snippet <small>(Under 200 Characters)</small> </label>
+                        {{ form.snippets }}
+                    </p>
+                </div>
+                <div class="sec3">
+                    <p>
+                        {{ form.image }}
+                    </p>
+                    {% if post.image %}
+                    <img src="{{ post.image.url}}" alt="connect" style="max-width:100%; max-height: auto;">
+                    {% endif %}
+                </div>
+                <button class="btn btn-primary but1" name="status" id="id_status" type="submit" value="d">Save as Draft</button>
+                <button class="btn btn-success" name="status" id="id_status" type="submit" value="p">Publish Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

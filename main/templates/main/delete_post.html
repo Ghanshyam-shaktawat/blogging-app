@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block title%}Confirm Delete Post{% endblock %}
+{% block start %}
+
+    {% if user.id == post.author.id %}
+    <div class="container">
+        <h2>Delete: {{ post.title }}</h2>
+    
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                <strong>Are you sure want to delete this post?</strong><br><br>
+                <button class="btn btn-danger">Confirm Delete</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <strong>PAGE NOT FOUND!!!</strong>
+    {% endif %}
+
+{% endblock %}
