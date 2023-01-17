@@ -5,7 +5,7 @@ blogging_env
 blog_env
 /static
 /media
-blogging/email_auth.py
+# blogging/email_auth.py
 db.sqlite3
 
 # Visual Studio Code # 
