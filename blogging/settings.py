@@ -86,22 +86,22 @@ WSGI_APPLICATION = 'blogging.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-#uncomment this to use the postgresql
+# #Connecting to railway.app database
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'blog',
-#         'USER': 'django',
-#         'PASSWORD': 'django',
-#         'HOST': 'localhost',
-#         'PORT': 5432,
+#         'USER': 'postgres',
+#         'PASSWORD': 'VsSOHbtLDoUZquykv1tQ',
+#         'HOST': 'containers-us-west-96.railway.app',
+#         'PORT': 7847,
 #     }
 # }
 
@@ -173,3 +173,12 @@ APPEND_SLASH = True
 # # Configure Django App for Heroku.
 import django_on_heroku
 django_on_heroku.settings(locals())
+
+#setting database
+import dj_database_url
+
+DATABASE_URL = 'postgresql://postgres:VsSOHbtLDoUZquykv1tQ@containers-us-west-96.railway.app:7847/railway'
+
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
