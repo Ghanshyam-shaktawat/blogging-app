@@ -6,6 +6,7 @@ blog_env
 /static
 /media
 blogging/production_settings.py
+db.sqlite3
 
 # Visual Studio Code # 
 .vscode/* 
