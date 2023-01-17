@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from .email_auth import USER, PASSWORD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -162,8 +163,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 EMAIL_HOST = 'smtp.gmail.com'  
 EMAIL_USE_TLS = True  
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'deadshootg@gmail.com' #Importing password and email from production settings.
-EMAIL_HOST_PASSWORD = 'enrnwrejohuzjmwz'
+EMAIL_HOST_USER = USER #Importing password and email from email_auth file.
+EMAIL_HOST_PASSWORD = PASSWORD
 
 APPEND_SLASH = True
 
