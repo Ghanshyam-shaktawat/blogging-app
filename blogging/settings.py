@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from .email_auth import USER, PASSWORD
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +34,6 @@ CSRF_TRUSTED_ORIGINS = ['https://blogging-app-production.up.railway.app']
 ALLOWED_HOSTS = []
 
 # Application definition
-
 INSTALLED_APPS = [
     #Myapps
     'main',
@@ -60,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'blogging.urls'
@@ -81,29 +84,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blogging.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# #Connecting to railway.app database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blog',
-#         'USER': 'postgres',
-#         'PASSWORD': 'VsSOHbtLDoUZquykv1tQ',
-#         'HOST': 'containers-us-west-96.railway.app',
-#         'PORT': 7847,
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -165,14 +145,10 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 EMAIL_HOST = 'smtp.gmail.com'  
 EMAIL_USE_TLS = True  
 EMAIL_PORT = 587
-EMAIL_HOST_USER = USER #Importing password and email from email_auth file.
-EMAIL_HOST_PASSWORD = PASSWORD
+EMAIL_HOST_USER = os.getenv("USER") #Importing password and email from .env
+EMAIL_HOST_PASSWORD = os.getenv("PASSWORD")
 
 APPEND_SLASH = True
-
-# # Configure Django App for Heroku.
-import django_on_heroku
-django_on_heroku.settings(locals())
 
 #setting database
 import dj_database_url
