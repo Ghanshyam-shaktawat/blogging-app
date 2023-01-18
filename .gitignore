@@ -7,6 +7,7 @@ blog_env
 /media
 # blogging/email_auth.py
 db.sqlite3
+*.env
 
 # Visual Studio Code # 
 .vscode/* 
