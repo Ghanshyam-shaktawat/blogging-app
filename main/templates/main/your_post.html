@@ -12,7 +12,7 @@
 <div class="container-u1">
     <div class="u-articles">
         <h2><i class="fa-solid fa-square"></i>Your Post</h2>
-        {% for post in post_list|slice:'1:' %}
+        {% for post in post_list %}
         <article class="u-posts">
             <div class="post-image">
                 <a href="{% url 'main:post-detail' post.slug %}"><img src="{{post.image.url}}" alt="" class="m-img"></a>

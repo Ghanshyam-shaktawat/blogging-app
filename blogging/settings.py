@@ -181,4 +181,4 @@ DATABASE_URL = 'postgresql://postgres:VsSOHbtLDoUZquykv1tQ@containers-us-west-96
 
 DATABASES = {
     "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
-}
+}   
