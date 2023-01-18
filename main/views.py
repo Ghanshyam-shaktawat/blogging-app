@@ -63,7 +63,7 @@ class DeletePostView(generic.DeleteView):
     """Delete a post from the databsae."""
     model = Post
     template_name = 'main/delete_post.html'
-    success_url= reverse_lazy('main:user-post')
+    success_url= reverse_lazy('main:your-post')
     
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):

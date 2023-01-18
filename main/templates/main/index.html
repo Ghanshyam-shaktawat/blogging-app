@@ -5,6 +5,7 @@
 {% block start %}
 <div class="content">
     <div class="p-card">
+        {% if post_list %}
         <a href='{% url "main:post-detail"  post_list.0.slug %}' class="p-link">
         <img src="{{post_list.0.image.url}}" alt="" class="p-card-img">
         <div class="card-meta">
@@ -12,6 +13,7 @@
             <p>{{post_list.0.snippets}}</p>
         </div>
         </a>
+        {% endif %}
     </div>
     <div class="t-sec">
         <div class="t-wrapper">
