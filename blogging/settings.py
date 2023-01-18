@@ -26,11 +26,11 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['https://blogging-app-production.up.railway.app']
 
-ALLOWED_HOSTS = ['https://blogging-app-production.up.railway.app', '*']
+ALLOWED_HOSTS = []
 
 # Application definition
 
