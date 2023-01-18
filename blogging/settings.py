@@ -23,14 +23,14 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = 'django-insecure-b@kanmi-96xg7bj60-%wis$yll7)#0zkxo66zoc=v%uol9+jq^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 CSRF_TRUSTED_ORIGINS = ['https://blogging-app-production.up.railway.app']
 
-ALLOWED_HOSTS = ['blogging-app-production.up.railway.app', 'containers-us-west-96.railway.app', '34.83.76.188']
+ALLOWED_HOSTS = []
 
 # Application definition
 
