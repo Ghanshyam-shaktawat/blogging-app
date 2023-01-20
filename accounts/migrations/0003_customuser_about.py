@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customuser',
             name='about',
-            field=models.CharField(default='I am Myself!', max_length=255),
+            field=models.CharField(default='I have nothing to say...', max_length=255),
         ),
     ]

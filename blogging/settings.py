@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     #Installed apps
     'tinymce',
     'fontawesomefree',
-    #'admin_volt.apps.AdminVoltConfig', #Not using rn, will make a custom one in future same as this one.
     
     #Default apps
     'django.contrib.admin',
@@ -81,29 +80,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blogging.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# #Connecting to railway.app database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blog',
-#         'USER': 'postgres',
-#         'PASSWORD': 'VsSOHbtLDoUZquykv1tQ',
-#         'HOST': 'containers-us-west-96.railway.app',
-#         'PORT': 7847,
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -169,10 +145,6 @@ EMAIL_HOST_USER = USER #Importing password and email from email_auth file.
 EMAIL_HOST_PASSWORD = PASSWORD
 
 APPEND_SLASH = True
-
-# # Configure Django App for Heroku.
-import django_on_heroku
-django_on_heroku.settings(locals())
 
 #setting database
 import dj_database_url
