@@ -11,17 +11,18 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-from .email_auth import USER, PASSWORD
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b@kanmi-96xg7bj60-%wis$yll7)#0zkxo66zoc=v%uol9+jq^'
+SECRET_KEY = os.getenv("SECRET")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +39,6 @@ INSTALLED_APPS = [
     #Installed apps
     'tinymce',
     'fontawesomefree',
-    #'admin_volt.apps.AdminVoltConfig', #Not using rn, will make a custom one in future same as this one.
     
     #Default apps
     'django.contrib.admin',
@@ -90,18 +90,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-#uncomment this to use the postgresql
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blog',
-#         'USER': 'django',
-#         'PASSWORD': 'django',
-#         'HOST': 'localhost',
-#         'PORT': 5432,
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -163,11 +151,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 EMAIL_HOST = 'smtp.gmail.com'  
 EMAIL_USE_TLS = True  
 EMAIL_PORT = 587
-EMAIL_HOST_USER = USER #Importing password and email from email_auth file.
-EMAIL_HOST_PASSWORD = PASSWORD
+EMAIL_HOST_USER = os.getenv("USER") #Importing password and email from email_auth file.
+EMAIL_HOST_PASSWORD = os.getenv("PASSWORD")
 
 APPEND_SLASH = True
-
-# # Configure Django App for Heroku.
-# import django_on_heroku
-# django_on_heroku.settings(locals())
