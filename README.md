@@ -1,10 +1,8 @@
 # blogging-app
 Hey everyone!
 
-`
-I am informing everyone that this perticular repo will be archived as this projects was a part of my learning process so its wasent made efficent and a lot of code parts i didnt understood at the time of making it.
-I am recreating this app again with all the knowledge i gain until now with the name - "CodeBlogging".
-`
+> I am informing everyone that this perticular repo will soon be archived as this projects was a part of my learning process so its wasent made efficent and a lot of code parts i didnt understood at the time of making it.
+>  I am recreating this app again with all the knowledge i gain until now with the name - "CodeBlogging". ```
 
 
 It's a simple app which lets the user register themself and become a writer. This app has a lot of features like rich text editor, comments, clean ui, 2fa, login with email/usernam, etc.
